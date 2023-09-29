@@ -15,6 +15,15 @@ class ForecastViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
+    @IBAction func didTapBackButton(_ sender: UIButton) {
+        selectedForecastIndex = max(0, selectedForecastIndex - 1) // don't go lower than 0 index
+        configure(with: forecasts[selectedForecastIndex]) // change the forecast shown in the UI
+    }
+    @IBAction func didTapForwardButton(_ sender: UIButton) {
+        selectedForecastIndex = min(forecasts.count - 1, selectedForecastIndex + 1) // don't go higher than the number of forecasts
+        configure(with: forecasts[selectedForecastIndex]) // change the forecast shown in the UI
+    }
+    
     private var forecasts = [WeatherForecast]() // tracks all the possible forecasts
     private var selectedForecastIndex = 0 // tracks which forecast is being shown, defaults to 0
     

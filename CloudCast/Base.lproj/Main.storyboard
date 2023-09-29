@@ -64,11 +64,17 @@
                                 <rect key="frame" x="16.000000000000004" y="309" width="37.333333333333343" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="◀"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="dwb-fi-fiM" eventType="touchUpInside" id="SbS-w9-j8D"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0x-io-VzM">
                                 <rect key="frame" x="339.66666666666669" y="309" width="37.333333333333314" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="▶"/>
+                                <connections>
+                                    <action selector="didTapForwardButton:" destination="dwb-fi-fiM" eventType="touchUpInside" id="RNK-AT-zat"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ALB-hU-Rmk"/>
@@ -78,13 +84,14 @@
                             <constraint firstItem="QhO-yV-jfw" firstAttribute="top" secondItem="ALB-hU-Rmk" secondAttribute="top" constant="20" id="5F5-lQ-so5"/>
                             <constraint firstItem="H2q-iY-eyH" firstAttribute="centerX" secondItem="pIX-DI-vXW" secondAttribute="centerX" id="F1d-Zk-qa1"/>
                             <constraint firstItem="fn3-85-qed" firstAttribute="centerY" secondItem="pIX-DI-vXW" secondAttribute="centerY" constant="-100" id="FeC-Mw-sgl"/>
-                            <constraint firstItem="b0x-io-VzM" firstAttribute="centerY" secondItem="pIX-DI-vXW" secondAttribute="centerY" id="Nhl-HH-m5u"/>
+                            <constraint firstItem="b0x-io-VzM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2q-iY-eyH" secondAttribute="trailing" constant="8" symbolic="YES" id="JMH-Lf-kBw"/>
                             <constraint firstItem="ALB-hU-Rmk" firstAttribute="trailing" secondItem="b0x-io-VzM" secondAttribute="trailing" constant="16" id="SJS-5w-UN4"/>
                             <constraint firstItem="b0x-io-VzM" firstAttribute="centerY" secondItem="pIX-DI-vXW" secondAttribute="centerY" constant="-100" id="Spz-h8-wza"/>
                             <constraint firstItem="PAD-s6-X8k" firstAttribute="centerX" secondItem="pIX-DI-vXW" secondAttribute="centerX" id="VPl-oR-Ymy"/>
                             <constraint firstItem="H2q-iY-eyH" firstAttribute="top" secondItem="QhO-yV-jfw" secondAttribute="bottom" constant="75" id="fZ4-OJ-otd"/>
                             <constraint firstItem="fn3-85-qed" firstAttribute="leading" secondItem="ALB-hU-Rmk" secondAttribute="leading" constant="16" id="gSB-Kl-kaG"/>
                             <constraint firstItem="PAD-s6-X8k" firstAttribute="top" secondItem="ALB-hU-Rmk" secondAttribute="top" constant="20" id="hpa-M7-864"/>
+                            <constraint firstItem="H2q-iY-eyH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fn3-85-qed" secondAttribute="trailing" constant="8" symbolic="YES" id="pKp-2r-TXw"/>
                         </constraints>
                     </view>
                     <connections>
