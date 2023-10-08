@@ -110,11 +110,11 @@
 				997BF5F029D4838D0099F2B4 /* Main.storyboard */,
 				A2FE04A62AC392A400927AA1 /* ForecastViewController.swift */,
 				A254F03B2AD2412C0057C2AC /* WeatherForecastService.swift */,
+				A2FE04A82AC4D52A00927AA1 /* WeatherForecast.swift */,
 				A254F03D2AD241D60057C2AC /* CurrentWeatherForecast.swift */,
 				997BF5F329D4838E0099F2B4 /* Assets.xcassets */,
 				997BF5F529D4838E0099F2B4 /* LaunchScreen.storyboard */,
 				997BF5F829D4838E0099F2B4 /* Info.plist */,
-				A2FE04A82AC4D52A00927AA1 /* WeatherForecast.swift */,
 			);
 			path = CloudCast;
 			sourceTree = "<group>";

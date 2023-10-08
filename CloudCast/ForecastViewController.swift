@@ -77,7 +77,7 @@ class ForecastViewController: UIViewController {
         // Create a few mock data to show
         let mockData1 = WeatherForecast(temperature: 59.5,
                                         date:today,
-                                        weatherCode: .violentRainShowers
+                                        weatherCode: .rainShowersViolent
 //                                        windSpeed: 3.3,
 //                                        precipitation: 33.3,
                                         )
