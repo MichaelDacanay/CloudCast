@@ -7,8 +7,13 @@
 
 import UIKit
 
-class ForecastViewController: UIViewController {
+struct Location {
+  let name: String
+  let latitude: Double
+  let longitude: Double
+}
 
+class ForecastViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var forecastImageView: UIImageView!
@@ -18,25 +23,47 @@ class ForecastViewController: UIViewController {
     @IBAction func didTapBackButton(_ sender: UIButton) {
         selectedForecastIndex = max(0, selectedForecastIndex - 1) // don't go lower than 0 index
         configure(with: forecasts[selectedForecastIndex]) // change the forecast shown in the UI
+        
+        selectedLocationIndex = max(0, selectedLocationIndex - 1) // make sure selectedLocationIndex is always >= 0
+        changeLocation(withLocationIndex: selectedLocationIndex)
+        
     }
     @IBAction func didTapForwardButton(_ sender: UIButton) {
         selectedForecastIndex = min(forecasts.count - 1, selectedForecastIndex + 1) // don't go higher than the number of forecasts
         configure(with: forecasts[selectedForecastIndex]) // change the forecast shown in the UI
+        
+        selectedLocationIndex = min(locations.count - 1, selectedLocationIndex + 1) // make sure selectedLocationIndex is always < locations.count
+        changeLocation(withLocationIndex: selectedLocationIndex)
     }
     
     private var forecasts = [WeatherForecast]() // tracks all the possible forecasts
     private var selectedForecastIndex = 0 // tracks which forecast is being shown, defaults to 0
+    
+    private var locations = [Location]() // stores the different locations
+    private var selectedLocationIndex = 0 // keeps track of the current selected location
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
         addGradient()
         
-        // Make sure the order of your parameters matches the order of WeatherForecast struct.
+        // Create a few locations to show the forecast for. Feel free to add your own custom location!
+        let sanJose = Location(name: "San Jose", latitude: 37.335480, longitude: -121.893028)
+        let manila = Location(name: "Manila", latitude: 12.8797, longitude: 121.7740)
+        let italy = Location(name: "Italy", latitude: 41.8719, longitude: 12.5674)
+        locations = [sanJose, manila, italy]
+        
         forecasts = createMockData()
 //        let fakeData = WeatherForecast(temperature: 25.0, date: Date(), weatherCode: .partlyCloudy)
 //        configure(with: fakeData)
         configure(with: forecasts[selectedForecastIndex]) // configure the UI to show the first mock data
+        
+        changeLocation(withLocationIndex: 0) // when the view loads, make sure the first location is shown
+    }
+    private func changeLocation(withLocationIndex locationIndex: Int) {
+        guard locationIndex < locations.count else { return }
+        let location = locations[locationIndex]
+        locationLabel.text = location.name
     }
     
     // Returns an array of fake WeatherForecast data models to show
